@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Step number label (like "1.", "2.", ...) -->
+    <TextView
+        android:id="@+id/instructionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:textColor="@android:color/black"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:layout_marginEnd="8dp" />
+
+    <!-- Instruction text -->
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Boil pasta until al dente"
+        android:textColor="@android:color/black"
+        android:textAppearance="?attr/textAppearanceBodyLarge" />
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+    <!-- Custom Recipes Toolbar at Top -->
+    <include
+        layout="@layout/custom_toolbar_recipes"
+        android:id="@+id/custom_toolbar_recipes" />
+
+    <!-- Large page title -->
+    <TextView
+        android:id="@+id/recipesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipes"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="4dp" />
+
+    <!-- 🔍 Search bar, starts hidden -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/search"
+        android:padding="8dp" />
+
+    <!-- RecyclerView for recipes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:clipToPadding="false" />
+
+    <!-- 'Empty' label, only visible when list is empty -->
+    <TextView
+        android:id="@+id/tutorialLabelRecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empty"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFEE8B60"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:padding="32dp" />
+
+    <!-- "Tap + to add" button, only visible when list is empty -->
+    <Button
+        android:id="@+id/tutorialButtonRecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tap_plus_to_add_recipe"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="6dp" />
+
+    <!-- Busy overlay -->
+    <FrameLayout
+        android:id="@+id/progressOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progressBarRecipes"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/progressLabelRecipes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/updating"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+    <!-- Custom Planning Toolbar at Top -->
+    <include
+        layout="@layout/custom_toolbar_shopping"
+        android:id="@+id/custom_toolbar_planning" />
+
+    <!-- Large page title -->
+    <TextView
+        android:id="@+id/planningTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/shopping_list"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <!-- Section label ("Other") -->
+    <TextView
+        android:id="@+id/sectionHeaderPlanning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="4dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- RecyclerView for shopping items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/upcomingRecyclerViewPlanning"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:clipToPadding="false"
+        />
+
+    <!-- 'Empty' label, only visible when list is empty -->
+    <TextView
+        android:id="@+id/tutorialLabelPlanning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empty"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFEE8B60"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:padding="32dp"/>
+
+    <!-- "Remove completed" delete button -->
+    <Button
+        android:id="@+id/deleteButtonPlanning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove completed"
+        android:visibility="gone"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="start"/>
+</LinearLayout>

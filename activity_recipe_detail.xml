@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootRecipeDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <!-- Toolbar always at the very top -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarRecipeDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:titleTextColor="@android:color/black"
+        app:navigationIconTint="@android:color/black"
+        app:title="@string/recipes" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextRecipeDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:paddingTop="28dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:text="@string/recipe_title" />
+
+    <!-- IMAGE AREA: Layout just like in Create Recipe -->
+    <FrameLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="#F6F6F7"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_camera"
+            android:contentDescription="@string/recipe_image"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#9f9f9f" />
+    </FrameLayout>
+
+    <!-- Category Spinner -->
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="start"
+        android:textAlignment="viewStart"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:id="@+id/servingsControlSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp">
+
+        <TextView
+            android:id="@+id/servingsLabelDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/people"
+            android:textColor="#646464"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/servingsMinusDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_left_1"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="4dp"
+             />
+
+        <TextView
+            android:id="@+id/servingsCountDetail"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#646464"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/servingsPlusDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_right_1"
+            android:background="@android:color/transparent"
+             />
+    </LinearLayout>
+
+
+    <!-- Ingredients Expandable Header -->
+    <LinearLayout
+        android:id="@+id/ingredientsExpandableHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/ingredientsExpandableLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ingredients"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222"
+            android:gravity="start"
+            android:textAlignment="viewStart"/>
+        <ImageView
+            android:id="@+id/ingredientsExpandableIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_down"
+            app:tint="@color/black"/>
+    </LinearLayout>
+
+    <!-- Ingredients RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ingredientsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:textSize="20sp"
+        android:background="#FFF"/>
+
+    <!-- Instructions Expandable Header -->
+    <LinearLayout
+        android:id="@+id/instructionsExpandableHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="4dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/instructionsExpandableLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/instructions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222" />
+        <ImageView
+            android:id="@+id/instructionsExpandableIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_down"
+            app:tint="@color/black"/>
+    </LinearLayout>
+
+    <!-- Instructions RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stepsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:textSize="20sp"
+        android:background="#FFF"/>
+
+    <!-- Attachments Expandable Header -->
+    <LinearLayout
+        android:id="@+id/attachmentsExpandableHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/attachmentsLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/attachments"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#222"/>
+
+        <ImageView
+            android:id="@+id/attachmentsExpandableIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_down"
+            app:tint="@color/black"/>
+    </LinearLayout>
+
+    <!-- Attachments ListView, equivalent role to RecyclerView for ingredients/instructions -->
+    <ListView
+        android:id="@+id/attachmentsDetailListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:textSize="20sp"
+        android:background="#FFF"
+        android:divider="@color/secondary_light"
+        android:dividerHeight="1dp"
+        android:visibility="gone" />
+
+</LinearLayout>
