@@ -1,4 +1,4 @@
-Privacy Policy for Rezeptmomente
+Privacy Policy for Rezeptmomente / Recipe Moments
 
 Last updated: June 9, 2026
 
